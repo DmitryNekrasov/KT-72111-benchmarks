@@ -6,8 +6,8 @@ plugins {
     id("org.jetbrains.kotlinx.benchmark") version "0.4.13"
 }
 
-group = "org.example"
-version = "1.0-SNAPSHOT"
+group = "benchmark.duration"
+version = "0.1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -50,7 +50,13 @@ benchmark {
 
     configurations {
         named("main") {
-            advanced("jvmForks", 3)
+            advanced("jvmForks", 2)
+            iterations = 5
+            iterationTime = 1
+            iterationTimeUnit = "s"
+            warmups = 3
+            mode = "avgt"
+            outputTimeUnit = "ns"
         }
     }
 }
