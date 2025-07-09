@@ -2,7 +2,7 @@ import kotlinx.benchmark.gradle.JvmBenchmarkTarget
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
-    kotlin("multiplatform") version "2.1.20"
+    kotlin("multiplatform")
     id("org.jetbrains.kotlinx.benchmark") version "0.4.13"
 }
 
@@ -10,14 +10,13 @@ group = "benchmark.duration"
 version = "0.1.0-SNAPSHOT"
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
 kotlin {
     jvmToolchain(21)
-
     jvm()
-
     macosArm64()
     macosX64()
     linuxX64()
