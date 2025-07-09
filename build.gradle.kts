@@ -53,7 +53,7 @@ benchmark {
             iterations = 5
             iterationTime = 1
             iterationTimeUnit = "s"
-            warmups = 3
+            warmups = 10
             mode = "avgt"
             outputTimeUnit = "ns"
         }
