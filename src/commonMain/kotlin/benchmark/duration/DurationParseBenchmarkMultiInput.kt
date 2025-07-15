@@ -6,7 +6,7 @@ import kotlinx.benchmark.*
 import kotlin.time.Duration
 
 @State(Scope.Benchmark)
-class DurationParseBenchmarkMultiInput {
+open class DurationParseBenchmarkMultiInput {
     private val multiInputs = listOf(
         "PT24H",                    // iso_basic
         "PT1H0.123S",               // iso_fraction
