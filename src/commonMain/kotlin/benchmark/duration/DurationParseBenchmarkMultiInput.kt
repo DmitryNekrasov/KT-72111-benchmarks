@@ -24,7 +24,10 @@ open class DurationParseBenchmarkMultiInput {
 
     private fun getNextMultiInput(): String {
         val result = multiInputs[multiInputIndex]
-        multiInputIndex = (multiInputIndex + 1) % multiInputs.size
+        multiInputIndex++
+        if (multiInputIndex == multiInputs.size) {
+            multiInputIndex = 0
+        }
         return result
     }
 
