@@ -49,6 +49,14 @@ open class DurationParseBenchmark {
     val durationWrapper = DurationWrapper(Duration.ZERO)
 
     @Benchmark
+    fun parseAndConsumeBoxedDuration(bh: Blackhole) {
+        try {
+            bh.consume(Duration.parse(input))
+        } catch (_: IllegalArgumentException) {
+        }
+    }
+
+    @Benchmark
     fun parse(bh: Blackhole) {
         try {
             durationWrapper.duration = Duration.parse(input)
