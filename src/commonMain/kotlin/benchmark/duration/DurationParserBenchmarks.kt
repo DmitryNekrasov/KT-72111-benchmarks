@@ -44,8 +44,6 @@ open class DurationParseBenchmark {
             else -> error("Unhandled case-id: $caseId")
         }
 
-    class DurationWrapper(var duration: Duration)
-
     val durationWrapper = DurationWrapper(Duration.ZERO)
 
     @Benchmark
