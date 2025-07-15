@@ -49,7 +49,7 @@ benchmark {
 
     configurations {
         named("main") {
-            advanced("jvmForks", 2)
+            advanced("jvmForks", 1)
             iterations = 5
             iterationTime = 1
             iterationTimeUnit = "s"
