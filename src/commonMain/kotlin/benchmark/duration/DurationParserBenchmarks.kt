@@ -44,29 +44,37 @@ open class DurationParseBenchmark {
             else -> error("Unhandled case-id: $caseId")
         }
 
+    class DurationWrapper(var duration: Duration)
+
+    val durationWrapper = DurationWrapper(Duration.ZERO)
+
     @Benchmark
     fun parse(bh: Blackhole) {
         try {
-            bh.consume(Duration.parse(input))
+            durationWrapper.duration = Duration.parse(input)
+            bh.consume(durationWrapper)
         } catch (_: IllegalArgumentException) {
         }
     }
 
     @Benchmark
     fun parseOrNull(bh: Blackhole) {
-        bh.consume(Duration.parseOrNull(input))
+        durationWrapper.duration = Duration.parseOrNull(input) ?: Duration.ZERO
+        bh.consume(durationWrapper)
     }
 
     @Benchmark
     fun parseIsoString(bh: Blackhole) {
         try {
-            bh.consume(Duration.parseIsoString(input))
+            durationWrapper.duration = Duration.parseIsoString(input)
+            bh.consume(durationWrapper)
         } catch (_: IllegalArgumentException) {
         }
     }
 
     @Benchmark
     fun parseIsoStringOrNull(bh: Blackhole) {
-        bh.consume(Duration.parseIsoStringOrNull(input))
+        durationWrapper.duration = Duration.parseIsoStringOrNull(input) ?: Duration.ZERO
+        bh.consume(durationWrapper)
     }
 }
