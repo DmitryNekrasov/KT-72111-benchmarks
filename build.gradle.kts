@@ -50,10 +50,10 @@ benchmark {
     configurations {
         named("main") {
             advanced("jvmForks", 1)
-            iterations = 5
+            iterations = 10
             iterationTime = 1
             iterationTimeUnit = "s"
-            warmups = 10
+            warmups = 15
             mode = "avgt"
             outputTimeUnit = "ns"
         }
