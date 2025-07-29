@@ -20,6 +20,7 @@ open class DurationParseISOBenchmark {
         "len21",
         "len34",
         "len55",
+        "len89",
 
         // Special cases
         "iso_signs",
@@ -42,6 +43,7 @@ open class DurationParseISOBenchmark {
             "len21" -> "P15DT1234H128M52.874S"
             "len34" -> "P1234DT2587H85471M1234567.5258741S"
             "len55" -> "P1000DT123456708H875412386098M125487514523.25807451235S"
+            "len89" -> "P+00000001000DT-0000000123456708H+0000000875412386098M-0000000125487514523.2580745123500S"
 
             // Special cases
             "iso_signs" -> "P+5DT-1H+15M-0.123S"
