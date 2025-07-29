@@ -21,6 +21,10 @@ open class DurationParseISOBenchmark {
         "len34",
         "len55",
 
+        // Special cases
+        "iso_signs",
+        "iso_oversize_seconds",
+
         // Failing cases
         "invalid_empty",
         "iso_wrong_order",
@@ -38,6 +42,10 @@ open class DurationParseISOBenchmark {
             "len21" -> "P15DT1234H128M52.874S"
             "len34" -> "P1234DT2587H85471M1234567.5258741S"
             "len55" -> "P1000DT123456708H875412386098M125487514523.25807451235S"
+
+            // Special cases
+            "iso_signs" -> "P+5DT-1H+15M-0.123S"
+            "iso_oversize_seconds" -> "PT-12345678901234567890S"
 
             // Failing cases
             "invalid_empty" -> ""
