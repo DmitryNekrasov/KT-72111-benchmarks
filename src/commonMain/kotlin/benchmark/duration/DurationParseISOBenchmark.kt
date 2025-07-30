@@ -22,9 +22,11 @@ open class DurationParseISOBenchmark {
         "len55",
         "len89",
 
-        // Special cases
-        "iso_signs",
-        "iso_oversize_seconds",
+        // Overflow cases
+        "iso_overflow_small",
+        "iso_overflow_medium",
+        "iso_overflow_large",
+        "iso_overflow_extra_large",
 
         // Failing cases
         "invalid_empty",
@@ -32,6 +34,13 @@ open class DurationParseISOBenchmark {
         "iso_bad_fraction"
     )
     lateinit var caseId: String
+
+    private fun generateOverflowIsoDurationString(k: Int): String = "PT${"1234567890".repeat(k)}S"
+
+    private val isoOverflowSmall = generateOverflowIsoDurationString(2)
+    private val isoOverflowMedium = generateOverflowIsoDurationString(3)
+    private val isoOverflowLarge = generateOverflowIsoDurationString(8)
+    private val isoOverflowExtraLarge = generateOverflowIsoDurationString(21)
 
     val input: String
         get() = when (caseId) {
@@ -45,9 +54,11 @@ open class DurationParseISOBenchmark {
             "len55" -> "P1000DT123456708H875412386098M125487514523.25807451235S"
             "len89" -> "P+00000001000DT-0000000123456708H+0000000875412386098M-0000000125487514523.2580745123500S"
 
-            // Special cases
-            "iso_signs" -> "P+5DT-1H+15M-0.123S"
-            "iso_oversize_seconds" -> "PT-12345678901234567890S"
+            // Overflow cases
+            "iso_overflow_small" -> isoOverflowSmall
+            "iso_overflow_medium" -> isoOverflowMedium
+            "iso_overflow_large" -> isoOverflowLarge
+            "iso_overflow_extra_large" -> isoOverflowExtraLarge
 
             // Failing cases
             "invalid_empty" -> ""
