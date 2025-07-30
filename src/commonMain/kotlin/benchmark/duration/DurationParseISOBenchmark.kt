@@ -23,10 +23,15 @@ open class DurationParseISOBenchmark {
         "len89",
 
         // Overflow cases
-        "iso_overflow_small",
-        "iso_overflow_medium",
-        "iso_overflow_large",
-        "iso_overflow_extra_large",
+        "long_overflow_small",
+        "long_overflow_medium",
+        "long_overflow_large",
+        "long_overflow_extra_large",
+
+        "double_overflow_small",
+        "double_overflow_medium",
+        "double_overflow_large",
+        "double_overflow_extra_large",
 
         // Failing cases
         "invalid_empty",
@@ -35,12 +40,18 @@ open class DurationParseISOBenchmark {
     )
     lateinit var caseId: String
 
-    private fun generateOverflowIsoDurationString(k: Int): String = "PT${"1234567890".repeat(k)}S"
+    private fun generateLongOverflowString(k: Int): String = "PT${"1234567890".repeat(k)}S"
+    private fun generateDoubleOverflowString(k: Int): String = "PT0.${"0123456789".repeat(k)}S"
 
-    private val isoOverflowSmall = generateOverflowIsoDurationString(2)
-    private val isoOverflowMedium = generateOverflowIsoDurationString(3)
-    private val isoOverflowLarge = generateOverflowIsoDurationString(8)
-    private val isoOverflowExtraLarge = generateOverflowIsoDurationString(21)
+    private val longOverflowSmall = generateLongOverflowString(2)
+    private val longOverflowMedium = generateLongOverflowString(3)
+    private val longOverflowLarge = generateLongOverflowString(8)
+    private val longOverflowExtraLarge = generateLongOverflowString(21)
+
+    private val doubleOverflowSmall = generateDoubleOverflowString(2)
+    private val doubleOverflowMedium = generateDoubleOverflowString(3)
+    private val doubleOverflowLarge = generateDoubleOverflowString(8)
+    private val doubleOverflowExtraLarge = generateDoubleOverflowString(21)
 
     val input: String
         get() = when (caseId) {
@@ -55,10 +66,15 @@ open class DurationParseISOBenchmark {
             "len89" -> "P+00000001000DT-0000000123456708H+0000000875412386098M-0000000125487514523.2580745123500S"
 
             // Overflow cases
-            "iso_overflow_small" -> isoOverflowSmall
-            "iso_overflow_medium" -> isoOverflowMedium
-            "iso_overflow_large" -> isoOverflowLarge
-            "iso_overflow_extra_large" -> isoOverflowExtraLarge
+            "long_overflow_small" -> longOverflowSmall
+            "long_overflow_medium" -> longOverflowMedium
+            "long_overflow_large" -> longOverflowLarge
+            "long_overflow_extra_large" -> longOverflowExtraLarge
+
+            "double_overflow_small" -> doubleOverflowSmall
+            "double_overflow_medium" -> doubleOverflowMedium
+            "double_overflow_large" -> doubleOverflowLarge
+            "double_overflow_extra_large" -> doubleOverflowExtraLarge
 
             // Failing cases
             "invalid_empty" -> ""
