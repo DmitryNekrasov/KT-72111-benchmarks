@@ -33,6 +33,11 @@ open class DurationParseISOBenchmark {
         "double_overflow_large",
         "double_overflow_extra_large",
 
+        "leading_zeros_small",
+        "leading_zeros_medium",
+        "leading_zeros_large",
+        "leading_zeros_extra_large",
+
         // Failing cases
         "invalid_empty",
         "iso_wrong_order",
@@ -42,6 +47,7 @@ open class DurationParseISOBenchmark {
 
     private fun generateLongOverflowString(k: Int): String = "PT${"1234567890".repeat(k)}S"
     private fun generateDoubleOverflowString(k: Int): String = "PT0.${"0123456789".repeat(k)}S"
+    private fun generateLeadingZeros(k: Int): String = "PT${"0000000000".repeat(k)}1H"
 
     private val longOverflowSmall = generateLongOverflowString(2)
     private val longOverflowMedium = generateLongOverflowString(3)
@@ -52,6 +58,11 @@ open class DurationParseISOBenchmark {
     private val doubleOverflowMedium = generateDoubleOverflowString(3)
     private val doubleOverflowLarge = generateDoubleOverflowString(8)
     private val doubleOverflowExtraLarge = generateDoubleOverflowString(21)
+
+    private val leadingZerosSmall = generateLeadingZeros(2)
+    private val leadingZerosMedium = generateLeadingZeros(3)
+    private val leadingZerosLarge = generateLeadingZeros(8)
+    private val leadingZerosExtraLarge = generateLeadingZeros(21)
 
     val input: String
         get() = when (caseId) {
@@ -75,6 +86,11 @@ open class DurationParseISOBenchmark {
             "double_overflow_medium" -> doubleOverflowMedium
             "double_overflow_large" -> doubleOverflowLarge
             "double_overflow_extra_large" -> doubleOverflowExtraLarge
+
+            "leading_zeros_small" -> leadingZerosSmall
+            "leading_zeros_medium" -> leadingZerosMedium
+            "leading_zeros_large" -> leadingZerosLarge
+            "leading_zeros_extra_large" -> leadingZerosExtraLarge
 
             // Failing cases
             "invalid_empty" -> ""
