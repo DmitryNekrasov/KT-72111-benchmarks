@@ -6,7 +6,7 @@ pluginManagement {
     }
 
     plugins {
-        kotlin("multiplatform") version "2.3.255-baseline"
+        kotlin("multiplatform") version "2.3.255-NFSAFI"
         id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
     }
 }
