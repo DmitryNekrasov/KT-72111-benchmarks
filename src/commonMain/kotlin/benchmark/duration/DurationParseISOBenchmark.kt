@@ -103,9 +103,9 @@ open class DurationParseISOBenchmark {
     val durationWrapper = DurationWrapper(Duration.ZERO)
 
     @Benchmark
-    fun parse(bh: Blackhole) {
+    fun parseIsoString(bh: Blackhole) {
         try {
-            durationWrapper.duration = Duration.parse(input)
+            durationWrapper.duration = Duration.parseIsoString(input)
             bh.consume(durationWrapper)
         } catch (_: IllegalArgumentException) {
         }
