@@ -2,15 +2,11 @@
 
 package benchmark.duration
 
-import kotlinx.benchmark.Benchmark
-import kotlinx.benchmark.Blackhole
-import kotlinx.benchmark.Param
-import kotlinx.benchmark.Scope
-import kotlinx.benchmark.State
+import kotlinx.benchmark.*
 import kotlin.time.Duration
 
 @State(Scope.Benchmark)
-open class DurationParseISOBenchmark {
+open class DefaultSuccessfulBenchmark {
     @Param(
         // Successful cases
         "len3",
@@ -23,11 +19,6 @@ open class DurationParseISOBenchmark {
         "len89",
 
         // Overflow cases
-        "long_overflow_small",
-        "long_overflow_medium",
-        "long_overflow_large",
-        "long_overflow_extra_large",
-
         "double_overflow_small",
         "double_overflow_medium",
         "double_overflow_large",
@@ -36,23 +27,12 @@ open class DurationParseISOBenchmark {
         "leading_zeros_small",
         "leading_zeros_medium",
         "leading_zeros_large",
-        "leading_zeros_extra_large",
-
-        // Failing cases
-        "invalid_empty",
-        "iso_wrong_order",
-        "iso_bad_fraction"
+        "leading_zeros_extra_large"
     )
     lateinit var caseId: String
 
-    private fun generateLongOverflowString(k: Int): String = "PT${"1234567890".repeat(k)}S"
-    private fun generateDoubleOverflowString(k: Int): String = "PT0.${"0123456789".repeat(k)}S"
-    private fun generateLeadingZeros(k: Int): String = "PT${"0000000000".repeat(k)}1H"
-
-    private val longOverflowSmall = generateLongOverflowString(2)
-    private val longOverflowMedium = generateLongOverflowString(3)
-    private val longOverflowLarge = generateLongOverflowString(8)
-    private val longOverflowExtraLarge = generateLongOverflowString(21)
+    private fun generateDoubleOverflowString(k: Int): String = "0.${"0123456789".repeat(k)}s"
+    private fun generateLeadingZeros(k: Int): String = "${"0000000000".repeat(k)}1h"
 
     private val doubleOverflowSmall = generateDoubleOverflowString(2)
     private val doubleOverflowMedium = generateDoubleOverflowString(3)
@@ -67,21 +47,16 @@ open class DurationParseISOBenchmark {
     val input: String
         get() = when (caseId) {
             // Successful cases
-            "len3" -> "P1D"
-            "len5" -> "PT24H"
-            "len8" -> "P1DT140M"
-            "len13" -> "P123DT10H123S"
-            "len21" -> "P15DT1234H128M52.874S"
-            "len34" -> "P1234DT2587H85471M1234567.5258741S"
-            "len55" -> "P1000DT123456708H875412386098M125487514523.25807451235S"
-            "len89" -> "P+00000001000DT-0000000123456708H+0000000875412386098M-0000000125487514523.2580745123500S"
+            "len3" -> "10d"
+            "len5" -> "1d12h"
+            "len8" -> "-5d23h2m"
+            "len13" -> "8d 31h 28m 6s"
+            "len21" -> "15d 98m 451s 30.123ms"
+            "len34" -> "100d 57h 12m 45s 28ms 3210.12345us"
+            "len55" -> "8765d 151h 452m 1233s 9873ms 123451us 987653.12345678ns"
+            "len89" -> "-(01257d  012395h 0087542m  000115874s 0871542ms  00951487us    000125845751.985487515ns)"
 
             // Overflow cases
-            "long_overflow_small" -> longOverflowSmall
-            "long_overflow_medium" -> longOverflowMedium
-            "long_overflow_large" -> longOverflowLarge
-            "long_overflow_extra_large" -> longOverflowExtraLarge
-
             "double_overflow_small" -> doubleOverflowSmall
             "double_overflow_medium" -> doubleOverflowMedium
             "double_overflow_large" -> doubleOverflowLarge
@@ -92,20 +67,15 @@ open class DurationParseISOBenchmark {
             "leading_zeros_large" -> leadingZerosLarge
             "leading_zeros_extra_large" -> leadingZerosExtraLarge
 
-            // Failing cases
-            "invalid_empty" -> ""
-            "iso_wrong_order" -> "PT1M2H"
-            "iso_bad_fraction" -> "PT0.25.25S"
-
             else -> error("Unhandled case-id: $caseId")
         }
 
     val durationWrapper = DurationWrapper(Duration.ZERO)
 
     @Benchmark
-    fun parseIsoString(bh: Blackhole) {
+    fun parse(bh: Blackhole) {
         try {
-            durationWrapper.duration = Duration.parseIsoString(input)
+            durationWrapper.duration = Duration.parse(input)
             bh.consume(durationWrapper)
         } catch (_: IllegalArgumentException) {
         }
