@@ -12,31 +12,29 @@ import kotlin.time.Duration
 @State(Scope.Benchmark)
 open class IsoSuccessfulBenchmark {
     @Param(
-        // Successful cases
-        "len3",
-        "len5",
-        "len8",
-        "len13",
-        "len21",
-        "len34",
-        "len55",
-        "len89",
+        "iso_len3",
+        "iso_len_05",
+        "iso_len_08",
+        "iso_len_13",
+        "iso_len_21",
+        "iso_len_34",
+        "iso_len_55",
+        "iso_len_89",
 
-        // Overflow cases
-        "long_overflow_small",
-        "long_overflow_medium",
-        "long_overflow_large",
-        "long_overflow_extra_large",
+        "iso_long_overflow_small",
+        "iso_long_overflow_medium",
+        "iso_long_overflow_large",
+        "iso_long_overflow_extra_large",
 
-        "double_overflow_small",
-        "double_overflow_medium",
-        "double_overflow_large",
-        "double_overflow_extra_large",
+        "iso_double_overflow_small",
+        "iso_double_overflow_medium",
+        "iso_double_overflow_large",
+        "iso_double_overflow_extra_large",
 
-        "leading_zeros_small",
-        "leading_zeros_medium",
-        "leading_zeros_large",
-        "leading_zeros_extra_large",
+        "iso_leading_zeros_small",
+        "iso_leading_zeros_medium",
+        "iso_leading_zeros_large",
+        "iso_leading_zeros_extra_large",
 
         // Failing cases
         "invalid_empty",
@@ -66,31 +64,29 @@ open class IsoSuccessfulBenchmark {
 
     val input: String
         get() = when (caseId) {
-            // Successful cases
-            "len3" -> "P1D"
-            "len5" -> "PT24H"
-            "len8" -> "P1DT140M"
-            "len13" -> "P123DT10H123S"
-            "len21" -> "P15DT1234H128M52.874S"
-            "len34" -> "P1234DT2587H85471M1234567.5258741S"
-            "len55" -> "P1000DT123456708H875412386098M125487514523.25807451235S"
-            "len89" -> "P+00000001000DT-0000000123456708H+0000000875412386098M-0000000125487514523.2580745123500S"
+            "iso_len_03" -> "P1D"
+            "iso_len_05" -> "PT24H"
+            "iso_len_08" -> "P1DT140M"
+            "iso_len_13" -> "P123DT10H123S"
+            "iso_len_21" -> "P15DT1234H128M52.874S"
+            "iso_len_34" -> "P1234DT2587H85471M1234567.5258741S"
+            "iso_len_55" -> "P1000DT123456708H875412386098M125487514523.25807451235S"
+            "iso_len_89" -> "P+00000001000DT-0000000123456708H+0000000875412386098M-0000000125487514523.2580745123500S"
 
-            // Overflow cases
-            "long_overflow_small" -> longOverflowSmall
-            "long_overflow_medium" -> longOverflowMedium
-            "long_overflow_large" -> longOverflowLarge
-            "long_overflow_extra_large" -> longOverflowExtraLarge
+            "iso_long_overflow_small" -> longOverflowSmall
+            "iso_long_overflow_medium" -> longOverflowMedium
+            "iso_long_overflow_large" -> longOverflowLarge
+            "iso_long_overflow_extra_large" -> longOverflowExtraLarge
 
-            "double_overflow_small" -> doubleOverflowSmall
-            "double_overflow_medium" -> doubleOverflowMedium
-            "double_overflow_large" -> doubleOverflowLarge
-            "double_overflow_extra_large" -> doubleOverflowExtraLarge
+            "iso_double_overflow_small" -> doubleOverflowSmall
+            "iso_double_overflow_medium" -> doubleOverflowMedium
+            "iso_double_overflow_large" -> doubleOverflowLarge
+            "iso_double_overflow_extra_large" -> doubleOverflowExtraLarge
 
-            "leading_zeros_small" -> leadingZerosSmall
-            "leading_zeros_medium" -> leadingZerosMedium
-            "leading_zeros_large" -> leadingZerosLarge
-            "leading_zeros_extra_large" -> leadingZerosExtraLarge
+            "iso_leading_zeros_small" -> leadingZerosSmall
+            "iso_leading_zeros_medium" -> leadingZerosMedium
+            "iso_leading_zeros_large" -> leadingZerosLarge
+            "iso_leading_zeros_extra_large" -> leadingZerosExtraLarge
 
             // Failing cases
             "invalid_empty" -> ""
