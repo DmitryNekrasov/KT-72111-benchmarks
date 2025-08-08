@@ -90,10 +90,7 @@ open class IsoSuccessfulBenchmark {
 
     @Benchmark
     fun parseIsoString(bh: Blackhole) {
-        try {
-            durationWrapper.duration = Duration.parseIsoString(input)
-            bh.consume(durationWrapper)
-        } catch (_: IllegalArgumentException) {
-        }
+        durationWrapper.duration = Duration.parseIsoString(input)
+        bh.consume(durationWrapper)
     }
 }

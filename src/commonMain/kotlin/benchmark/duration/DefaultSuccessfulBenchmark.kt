@@ -70,10 +70,7 @@ open class DefaultSuccessfulBenchmark {
 
     @Benchmark
     fun parse(bh: Blackhole) {
-        try {
-            durationWrapper.duration = Duration.parse(input)
-            bh.consume(durationWrapper)
-        } catch (_: IllegalArgumentException) {
-        }
+        durationWrapper.duration = Duration.parse(input)
+        bh.consume(durationWrapper)
     }
 }
