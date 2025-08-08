@@ -8,7 +8,6 @@ import kotlin.time.Duration
 @State(Scope.Benchmark)
 open class DefaultSuccessfulBenchmark {
     @Param(
-        // Successful cases
         "def_len_03",
         "def_len_05",
         "def_len_08",
@@ -18,7 +17,6 @@ open class DefaultSuccessfulBenchmark {
         "def_len_55",
         "def_len_89",
 
-        // Overflow cases
         "def_double_overflow_small",
         "def_double_overflow_medium",
         "def_double_overflow_large",
@@ -46,7 +44,6 @@ open class DefaultSuccessfulBenchmark {
 
     val input: String
         get() = when (caseId) {
-            // Successful cases
             "def_len_03" -> "10d"
             "def_len_05" -> "1d12h"
             "def_len_08" -> "-5d23h2m"
@@ -56,7 +53,6 @@ open class DefaultSuccessfulBenchmark {
             "def_len_55" -> "8765d 151h 452m 1233s 9873ms 123451us 987653.12345678ns"
             "def_len_89" -> "-(01257d  012395h 0087542m  000115874s 0871542ms  00951487us    000125845751.985487515ns)"
 
-            // Overflow cases
             "def_double_overflow_small" -> doubleOverflowSmall
             "def_double_overflow_medium" -> doubleOverflowMedium
             "def_double_overflow_large" -> doubleOverflowLarge
