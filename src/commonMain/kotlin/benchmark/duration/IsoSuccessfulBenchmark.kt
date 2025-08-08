@@ -34,12 +34,7 @@ open class IsoSuccessfulBenchmark {
         "iso_leading_zeros_small",
         "iso_leading_zeros_medium",
         "iso_leading_zeros_large",
-        "iso_leading_zeros_extra_large",
-
-        // Failing cases
-        "invalid_empty",
-        "iso_wrong_order",
-        "iso_bad_fraction"
+        "iso_leading_zeros_extra_large"
     )
     lateinit var caseId: String
 
@@ -87,11 +82,6 @@ open class IsoSuccessfulBenchmark {
             "iso_leading_zeros_medium" -> leadingZerosMedium
             "iso_leading_zeros_large" -> leadingZerosLarge
             "iso_leading_zeros_extra_large" -> leadingZerosExtraLarge
-
-            // Failing cases
-            "invalid_empty" -> ""
-            "iso_wrong_order" -> "PT1M2H"
-            "iso_bad_fraction" -> "PT0.25.25S"
 
             else -> error("Unhandled case-id: $caseId")
         }
