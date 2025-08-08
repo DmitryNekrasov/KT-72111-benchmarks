@@ -9,25 +9,25 @@ import kotlin.time.Duration
 open class DefaultSuccessfulBenchmark {
     @Param(
         // Successful cases
-        "len3",
-        "len5",
-        "len8",
-        "len13",
-        "len21",
-        "len34",
-        "len55",
-        "len89",
+        "def_len_03",
+        "def_len_05",
+        "def_len_08",
+        "def_len_13",
+        "def_len_21",
+        "def_len_34",
+        "def_len_55",
+        "def_len_89",
 
         // Overflow cases
-        "double_overflow_small",
-        "double_overflow_medium",
-        "double_overflow_large",
-        "double_overflow_extra_large",
+        "def_double_overflow_small",
+        "def_double_overflow_medium",
+        "def_double_overflow_large",
+        "def_double_overflow_extra_large",
 
-        "leading_zeros_small",
-        "leading_zeros_medium",
-        "leading_zeros_large",
-        "leading_zeros_extra_large"
+        "def_leading_zeros_small",
+        "def_leading_zeros_medium",
+        "def_leading_zeros_large",
+        "def_leading_zeros_extra_large"
     )
     lateinit var caseId: String
 
@@ -47,25 +47,25 @@ open class DefaultSuccessfulBenchmark {
     val input: String
         get() = when (caseId) {
             // Successful cases
-            "len3" -> "10d"
-            "len5" -> "1d12h"
-            "len8" -> "-5d23h2m"
-            "len13" -> "8d 31h 28m 6s"
-            "len21" -> "15d 98m 451s 30.123ms"
-            "len34" -> "100d 57h 12m 45s 28ms 3210.12345us"
-            "len55" -> "8765d 151h 452m 1233s 9873ms 123451us 987653.12345678ns"
-            "len89" -> "-(01257d  012395h 0087542m  000115874s 0871542ms  00951487us    000125845751.985487515ns)"
+            "def_len_03" -> "10d"
+            "def_len_05" -> "1d12h"
+            "def_len_08" -> "-5d23h2m"
+            "def_len_13" -> "8d 31h 28m 6s"
+            "def_len_21" -> "15d 98m 451s 30.123ms"
+            "def_len_34" -> "100d 57h 12m 45s 28ms 3210.12345us"
+            "def_len_55" -> "8765d 151h 452m 1233s 9873ms 123451us 987653.12345678ns"
+            "def_len_89" -> "-(01257d  012395h 0087542m  000115874s 0871542ms  00951487us    000125845751.985487515ns)"
 
             // Overflow cases
-            "double_overflow_small" -> doubleOverflowSmall
-            "double_overflow_medium" -> doubleOverflowMedium
-            "double_overflow_large" -> doubleOverflowLarge
-            "double_overflow_extra_large" -> doubleOverflowExtraLarge
+            "def_double_overflow_small" -> doubleOverflowSmall
+            "def_double_overflow_medium" -> doubleOverflowMedium
+            "def_double_overflow_large" -> doubleOverflowLarge
+            "def_double_overflow_extra_large" -> doubleOverflowExtraLarge
 
-            "leading_zeros_small" -> leadingZerosSmall
-            "leading_zeros_medium" -> leadingZerosMedium
-            "leading_zeros_large" -> leadingZerosLarge
-            "leading_zeros_extra_large" -> leadingZerosExtraLarge
+            "def_leading_zeros_small" -> leadingZerosSmall
+            "def_leading_zeros_medium" -> leadingZerosMedium
+            "def_leading_zeros_large" -> leadingZerosLarge
+            "def_leading_zeros_extra_large" -> leadingZerosExtraLarge
 
             else -> error("Unhandled case-id: $caseId")
         }
