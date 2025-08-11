@@ -12,7 +12,7 @@ import kotlin.time.Duration
 @State(Scope.Benchmark)
 open class IsoSuccessfulBenchmark {
     @Param(
-        "iso_len3",
+        "iso_len_03",
         "iso_len_05",
         "iso_len_08",
         "iso_len_13",
