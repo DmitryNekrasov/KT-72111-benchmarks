@@ -19,4 +19,3 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "KT-72111-benchmarks"
-
