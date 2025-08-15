@@ -19,10 +19,15 @@ open class DefaultSuccessfulBenchmark {
         "def_len_55",
         "def_len_89",
 
-        "def_double_overflow_small",
-        "def_double_overflow_medium",
-        "def_double_overflow_large",
-        "def_double_overflow_extra_large",
+        "def_double_overflow_days_small",
+        "def_double_overflow_days_medium",
+        "def_double_overflow_days_large",
+        "def_double_overflow_days_extra_large",
+
+        "def_double_overflow_seconds_small",
+        "def_double_overflow_seconds_medium",
+        "def_double_overflow_seconds_large",
+        "def_double_overflow_seconds_extra_large",
 
         "def_leading_zeros_small",
         "def_leading_zeros_medium",
@@ -31,13 +36,18 @@ open class DefaultSuccessfulBenchmark {
     )
     lateinit var caseId: String
 
-    private fun generateDoubleOverflowString(k: Int): String = "0.${"0123456789".repeat(k)}s"
+    private fun generateDoubleOverflowString(k: Int, unit: String): String = "0.${"0123456789".repeat(k)}$unit"
     private fun generateLeadingZeros(k: Int): String = "${"0000000000".repeat(k)}1h"
 
-    private val doubleOverflowSmall = generateDoubleOverflowString(2)
-    private val doubleOverflowMedium = generateDoubleOverflowString(3)
-    private val doubleOverflowLarge = generateDoubleOverflowString(8)
-    private val doubleOverflowExtraLarge = generateDoubleOverflowString(21)
+    private val doubleOverflowDaysSmall = generateDoubleOverflowString(2, "d")
+    private val doubleOverflowDaysMedium = generateDoubleOverflowString(3, "d")
+    private val doubleOverflowDaysLarge = generateDoubleOverflowString(8, "d")
+    private val doubleOverflowDaysExtraLarge = generateDoubleOverflowString(21, "d")
+
+    private val doubleOverflowSecondsSmall = generateDoubleOverflowString(2, "s")
+    private val doubleOverflowSecondsMedium = generateDoubleOverflowString(3, "s")
+    private val doubleOverflowSecondsLarge = generateDoubleOverflowString(8, "s")
+    private val doubleOverflowSecondsExtraLarge = generateDoubleOverflowString(21, "s")
 
     private val leadingZerosSmall = generateLeadingZeros(2)
     private val leadingZerosMedium = generateLeadingZeros(3)
@@ -57,10 +67,15 @@ open class DefaultSuccessfulBenchmark {
             "def_len_55" -> "8765d 151h 452m 1233s 9873ms 123451us 987653.12345678ns"
             "def_len_89" -> "-(01257d  012395h 0087542m  000115874s 0871542ms  00951487us    000125845751.985487515ns)"
 
-            "def_double_overflow_small" -> doubleOverflowSmall
-            "def_double_overflow_medium" -> doubleOverflowMedium
-            "def_double_overflow_large" -> doubleOverflowLarge
-            "def_double_overflow_extra_large" -> doubleOverflowExtraLarge
+            "def_double_overflow_days_small" -> doubleOverflowDaysSmall
+            "def_double_overflow_days_medium" -> doubleOverflowDaysMedium
+            "def_double_overflow_days_large" -> doubleOverflowDaysLarge
+            "def_double_overflow_days_extra_large" -> doubleOverflowDaysExtraLarge
+
+            "def_double_overflow_seconds_small" -> doubleOverflowSecondsSmall
+            "def_double_overflow_seconds_medium" -> doubleOverflowSecondsMedium
+            "def_double_overflow_seconds_large" -> doubleOverflowSecondsLarge
+            "def_double_overflow_seconds_extra_large" -> doubleOverflowSecondsExtraLarge
 
             "def_leading_zeros_small" -> leadingZerosSmall
             "def_leading_zeros_medium" -> leadingZerosMedium
