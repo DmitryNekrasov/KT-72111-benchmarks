@@ -61,7 +61,7 @@ open class DefaultSuccessfulBenchmark {
             "def_len_08" -> "-5d23h2m"
             "def_len_13" -> "8d 31h 28m 6s"
             "def_len_21_long" -> "1585749654254823172ns"
-            "def_len_21_fraction" -> "0.523974152896345971d"
+            "def_len_21_fraction" -> "0.523974152896345971s"
             "def_len_21_mixed" -> "15d 98m 451s 30.123ms"
             "def_len_34" -> "100d 57h 12m 45s 28ms 3210.12345us"
             "def_len_55" -> "8765d 151h 452m 1233s 9873ms 123451us 987653.12345678ns"
