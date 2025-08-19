@@ -17,7 +17,8 @@ open class IsoSuccessfulBenchmark {
         "iso_len_08",
         "iso_len_13",
         "iso_len_21",
-        "iso_len_34",
+        "iso_len_34_long",
+        "iso_len_34_mixed",
         "iso_len_55",
         "iso_len_89",
 
@@ -64,7 +65,8 @@ open class IsoSuccessfulBenchmark {
             "iso_len_08" -> "P1DT140M"
             "iso_len_13" -> "P123DT10H123S"
             "iso_len_21" -> "P15DT1234H128M52.874S"
-            "iso_len_34" -> "P1234DT2587H85471M1234567.5258741S"
+            "iso_len_34_long" -> "P1234DT198537H252317M303257858784S"
+            "iso_len_34_mixed" -> "P1234DT2587H85471M1234567.5258741S"
             "iso_len_55" -> "P1000DT123456708H875412386098M125487514523.25807451235S"
             "iso_len_89" -> "P+00000001000DT-0000000123456708H+0000000875412386098M-0000000125487514523.2580745123500S"
 
