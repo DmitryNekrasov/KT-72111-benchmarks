@@ -18,7 +18,8 @@ open class DefaultSuccessfulBenchmark {
         "def_len_21_mixed",
         "def_len_34",
         "def_len_55",
-        "def_len_89",
+        "def_len_89_long",
+        "def_len_89_mixed",
 
         "def_double_overflow_days_small",
         "def_double_overflow_days_medium",
@@ -67,7 +68,8 @@ open class DefaultSuccessfulBenchmark {
             "def_len_21_mixed" -> "15d 98m 451s 30.123ms"
             "def_len_34" -> "100d 57h 12m 45s 28ms 3210.12345us"
             "def_len_55" -> "8765d 151h 452m 1233s 9873ms 123451us 987653.12345678ns"
-            "def_len_89" -> "-(01257d  012395h 0087542m  000115874s 0871542ms  00951487us    000125845751.985487515ns)"
+            "def_len_89_long" -> "108652d 508745h 5723201m 1052381s 50423698574557ms 50985412302587us 5039785452315812307ns"
+            "def_len_89_mixed" -> "-(01257d  012395h 0087542m  000115874s 0871542ms  00951487us    000125845751.985487515ns)"
 
             "def_double_overflow_days_small" -> doubleOverflowDaysSmall
             "def_double_overflow_days_medium" -> doubleOverflowDaysMedium
