@@ -59,11 +59,11 @@ benchmark {
         }
         create("profile") {
             include("DefaultSuccessfulBenchmark.parse")
-            param("caseId", "def_len_05_long")
-            iterations = 100
+            param("caseId", "def_len_21_long_7")
+            iterations = 10
             iterationTime = 1
             iterationTimeUnit = "s"
-            warmups = 1000
+            warmups = 100
             mode = "avgt"
             outputTimeUnit = "ns"
         }
