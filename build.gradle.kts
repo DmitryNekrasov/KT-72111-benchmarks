@@ -57,5 +57,15 @@ benchmark {
             mode = "avgt"
             outputTimeUnit = "ns"
         }
+        create("essential") {
+            include("DefaultSuccessfulBenchmark.parse")
+            param("caseId", "def_len_05_long")
+            iterations = 10
+            iterationTime = 1
+            iterationTimeUnit = "s"
+            warmups = 15
+            mode = "avgt"
+            outputTimeUnit = "ns"
+        }
     }
 }
