@@ -60,10 +60,10 @@ benchmark {
         create("essential") {
             include("DefaultSuccessfulBenchmark.parse")
             param("caseId", "def_len_05_long")
-            iterations = 10
+            iterations = 100
             iterationTime = 1
             iterationTimeUnit = "s"
-            warmups = 15
+            warmups = 1000
             mode = "avgt"
             outputTimeUnit = "ns"
         }
