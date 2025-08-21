@@ -57,7 +57,7 @@ benchmark {
             mode = "avgt"
             outputTimeUnit = "ns"
         }
-        create("essential") {
+        create("profile") {
             include("DefaultSuccessfulBenchmark.parse")
             param("caseId", "def_len_05_long")
             iterations = 100
