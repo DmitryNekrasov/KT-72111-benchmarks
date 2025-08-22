@@ -24,7 +24,7 @@ open class DefaultFailingBenchmark {
             "empty" -> ""
             "def_wrong_order" -> "1d 54s 123m"
             "def_bad_fraction" -> "123.456.789d"
-            "def_overflow" -> "12345678901234567890ns"
+            "def_overflow" -> "123456789012345678901234567890ns"
 
             else -> error("Unhandled case-id: $caseId")
         }
