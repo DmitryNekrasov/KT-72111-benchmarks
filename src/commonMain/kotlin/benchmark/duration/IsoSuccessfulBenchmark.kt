@@ -39,7 +39,7 @@ open class IsoSuccessfulBenchmark {
     )
     lateinit var caseId: String
 
-    private fun generateLongOverflowString(k: Int): String = "PT${"1234567890".repeat(k)}S"
+    private fun generateLongOverflowString(k: Int): String = "PT${"0123456789".repeat(k)}H"
     private fun generateDoubleOverflowString(k: Int): String = "PT0.${"0123456789".repeat(k)}S"
     private fun generateLeadingZeros(k: Int): String = "PT${"0000000000".repeat(k)}1H"
 
