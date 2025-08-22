@@ -43,10 +43,10 @@ open class IsoSuccessfulBenchmark {
     private fun generateDoubleOverflowString(k: Int): String = "PT0.${"0123456789".repeat(k)}S"
     private fun generateLeadingZeros(k: Int): String = "PT${"0000000000".repeat(k)}1H"
 
-    private val longOverflowSmall = generateLongOverflowString(2)
-    private val longOverflowMedium = generateLongOverflowString(3)
-    private val longOverflowLarge = generateLongOverflowString(8)
-    private val longOverflowExtraLarge = generateLongOverflowString(21)
+    private val longOverflowSmall = generateLongOverflowString(20)
+    private val longOverflowMedium = generateLongOverflowString(30)
+    private val longOverflowLarge = generateLongOverflowString(80)
+    private val longOverflowExtraLarge = generateLongOverflowString(210)
 
     private val doubleOverflowSmall = generateDoubleOverflowString(2)
     private val doubleOverflowMedium = generateDoubleOverflowString(3)
