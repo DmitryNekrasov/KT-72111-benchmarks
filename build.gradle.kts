@@ -1,3 +1,5 @@
+import kotlinx.benchmark.gradle.JsBenchmarksExecutor
+import kotlinx.benchmark.gradle.JsBenchmarkTarget
 import kotlinx.benchmark.gradle.JvmBenchmarkTarget
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
@@ -43,7 +45,10 @@ benchmark {
         register("macosArm64")
         register("macosX64")
         register("linuxX64")
-        register("js")
+        register("js") {
+            this as JsBenchmarkTarget
+            jsBenchmarksExecutor = JsBenchmarksExecutor.BenchmarkJs
+        }
         register("wasmJs")
     }
 
@@ -63,7 +68,7 @@ benchmark {
             iterations = 10
             iterationTime = 1
             iterationTimeUnit = "s"
-            warmups = 100
+            warmups = 1000
             mode = "avgt"
             outputTimeUnit = "ns"
         }
