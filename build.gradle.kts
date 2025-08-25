@@ -47,7 +47,7 @@ benchmark {
         register("linuxX64")
         register("js") {
             this as JsBenchmarkTarget
-            jsBenchmarksExecutor = JsBenchmarksExecutor.BenchmarkJs
+            jsBenchmarksExecutor = JsBenchmarksExecutor.BuiltIn
         }
         register("wasmJs")
     }
@@ -63,12 +63,12 @@ benchmark {
             outputTimeUnit = "ns"
         }
         create("profile") {
-            include("DefaultSuccessfulBenchmark.parse")
-            param("caseId", "def_len_21_long_7")
-            iterations = 10
+            include("IsoSuccessfulBenchmark.parse")
+            param("caseId", "iso_frac_3", "iso_frac_4", "iso_frac_5", "iso_frac_6")
+            iterations = 20
             iterationTime = 1
             iterationTimeUnit = "s"
-            warmups = 1000
+            warmups = 50
             mode = "avgt"
             outputTimeUnit = "ns"
         }
