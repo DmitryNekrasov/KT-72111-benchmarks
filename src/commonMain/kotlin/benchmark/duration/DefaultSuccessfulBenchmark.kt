@@ -11,10 +11,8 @@ open class DefaultSuccessfulBenchmark {
         "def_len_03",
         "def_len_05_long",
         "def_len_05_fraction",
-        "def_len_08_long",
-        "def_len_08_fraction",
-        "def_len_13_long",
-        "def_len_13_fraction",
+        "def_len_08",
+        "def_len_13",
         "def_len_21_long_1",
         "def_len_21_long_7",
         "def_len_21_fraction",
@@ -64,10 +62,8 @@ open class DefaultSuccessfulBenchmark {
             "def_len_03" -> "10d"
             "def_len_05_long" -> "1d12h"
             "def_len_05_fraction" -> "0.12s"
-            "def_len_08_long" -> "-5d23h2m"
-            "def_len_08_fraction" -> "0.538 ms"
-            "def_len_13_long" -> "8d 31h 28m 6s"
-            "def_len_13_fraction" -> "0.876314   us"
+            "def_len_08" -> "-5d23h2m"
+            "def_len_13" -> "8d 31h 28m 6s"
             "def_len_21_long_1" -> "1585749654254823172ns"
             "def_len_21_long_7" -> "1d2h3m 4s 5ms 6us 7ns"
             "def_len_21_fraction" -> "0.523974152896345971s"
