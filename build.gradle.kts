@@ -25,7 +25,10 @@ kotlin {
 
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs { nodejs() }
-    js(IR) { nodejs() }
+    js(IR) {
+        nodejs()
+        compilerOptions.freeCompilerArgs.add("-Xes-long-as-bigint")
+    }
 
     sourceSets {
         commonMain {
@@ -63,8 +66,8 @@ benchmark {
             outputTimeUnit = "ns"
         }
         create("profile") {
-            include("IsoSuccessfulBenchmark.parse")
-            param("caseId", "iso_frac_3", "iso_frac_4", "iso_frac_5", "iso_frac_6")
+            include("DefaultSuccessfulBenchmark.parse")
+            param("caseId", "def_len_21_long_1", "def_len_89_long")
             iterations = 20
             iterationTime = 1
             iterationTimeUnit = "s"
